@@ -1,0 +1,15 @@
+#glCanvas {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+  } 
+#glConsole {
+    position: absolute;
+    right: 2%;
+    top: 40%;
+  } 
+#glInput {
+    position: absolute;
+    right: 2%;
+    top: 62%;
+  } 

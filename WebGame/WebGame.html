@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>WebGL Demo</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./Game.css" type="text/css">
+  </head>
+<body>
+  <div id="gameDiv" align = "left">
+      <canvas id="glCanvas" class="game" width="1800" height="680" style="border:1px solid #d3d3d3;"></canvas>
+  </div>
+  <div id="infoDiv" align = "right">
+    <canvas id="glConsole" width="768" height="280" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="glInput" width="640" height="60" style="border:1px solid #d3d3d3;"></canvas>
+  </div>
+</body>
+<script type="module" src="GameJS/Main.js"></script>
+<script id= "fragScript" type="text/glsl">#ifdef GL_ES
+  precision highp float;
+#endif
+varying vec2 uv;
+uniform sampler2D u_texture;
+uniform vec4 uGlobalColor;
+void main() {
+   vec2 texcoord = vec2(uv.x, uv.y);  // get a value from the middle of the texture
+   gl_FragColor = uGlobalColor;
+}
+</script>
+<script id= "vertScript" type="text/glsl">#ifdef GL_ES
+  precision highp float;
+#endif
+attribute vec2 position;
+attribute vec2 texCoord;
+varying vec2 uv;
+  void main()
+  {
+	  gl_Position = vec4(position, 0.0, 1.0);
+    uv = texCoord;
+  }
+
+</script>
+</html> 
